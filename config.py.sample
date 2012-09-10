@@ -1,0 +1,14 @@
+GITHUB_SETTINGS = {
+    'Test': {
+        'account': '',
+        'password': '',
+        'repos': {
+            'Atrac613': [
+                'Test'
+            ]
+        }
+    }
+}
+
+PRINTER_NAME = 'EPSON TM-L90 Receipt'
+DB_FILE_NAME = 'issue-printer.db'

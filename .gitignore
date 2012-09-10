@@ -1,0 +1,5 @@
+pdf/
+config.py
+.DS_Store
+*.pyc
+*.db
