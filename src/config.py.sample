@@ -1,7 +1,8 @@
 GITHUB_SETTINGS = {
-    'Test': {
+    'Default': {
         'account': '',
         'password': '',
+        #examples:  https://github.com/Atrac613/Test
         'repos': {
             'Atrac613': [
                 'Test'
