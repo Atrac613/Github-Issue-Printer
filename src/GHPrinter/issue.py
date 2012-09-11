@@ -29,7 +29,7 @@ from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from github3 import client
 
 from config import GITHUB_SETTINGS
-from config import PRINTER_NAME
+from config import PRINT_COMMAND
 from config import DB_FILE_NAME
 
 class GHIssuePrinter():
@@ -236,7 +236,7 @@ class GHIssuePrinter():
         self.debug('Print', 'Printing %s/%s/%s' % (user, repo, filename))
     
         #if (os.path.isfile(filename)):
-            #os.system(GSPRINT_COMMAND + ' -printer ' + PRINTER_NAME + ' ' + filename)
+            #os.system(PRINT_COMMAND % filename)
         
         os.chdir('..%s..%s..' % (os.sep, os.sep))
 

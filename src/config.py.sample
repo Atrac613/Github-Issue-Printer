@@ -11,5 +11,10 @@ GITHUB_SETTINGS = {
     }
 }
 
-PRINTER_NAME = 'EPSON TM-L90 Receipt'
+#Windows
+PRINT_COMMAND = 'gsprint -printer "EPSON TM-L90 Receipt" %s'
+
+#Mac
+#PRINT_COMMAND = ''
+
 DB_FILE_NAME = 'issue-printer.db'
