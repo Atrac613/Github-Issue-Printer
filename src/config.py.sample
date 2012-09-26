@@ -1,3 +1,6 @@
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+
 GITHUB_SETTINGS = {
     'Default': {
         'account': '',
@@ -13,8 +16,12 @@ GITHUB_SETTINGS = {
 
 #Windows
 PRINT_COMMAND = 'gsprint -printer "EPSON TM-L90 Receipt" %s'
+FONT = TTFont('MS Gothic', 'msgothic.ttc', subfontIndex=0, asciiReadable=0)
+FONT_NAME = 'MS Gothic'
 
 #Mac
-#PRINT_COMMAND = ''
+#PRINT_COMMAND = 'lp -d PRINTER_NAME %s'
+#FONT = UnicodeCIDFont('HeiseiKakuGo-W5')
+#FONT_NAME = 'HeiseiKakuGo-W5'
 
 DB_FILE_NAME = 'issue-printer.db'

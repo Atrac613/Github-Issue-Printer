@@ -24,13 +24,13 @@ from threading import Timer
 import wrap
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfgen import canvas
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from github3 import client
 
 from config import GITHUB_SETTINGS
 from config import PRINT_COMMAND
 from config import DB_FILE_NAME
+from config import FONT
+from config import FONT_NAME
 
 class GHIssuePrinter():
     def init_db(self):
@@ -164,8 +164,7 @@ class GHIssuePrinter():
         height = 350 + row * 12
 
         c = canvas.Canvas(filename, pagesize=(220, height))
-        msgothic = UnicodeCIDFont('HeiseiKakuGo-W5')
-        pdfmetrics.registerFont(msgothic)
+        pdfmetrics.registerFont(FONT)
 
         c.drawImage('..%s..%slogo.png' % (os.sep, os.sep),
                     60, height-110,
@@ -177,7 +176,7 @@ class GHIssuePrinter():
                     50, 50,
                     mask='auto', preserveAspectRatio=True)
 
-        c.setFont('HeiseiKakuGo-W5', 10)
+        c.setFont(FONT_NAME, 10)
         t = c.beginText(10, height-110)
         t.textLines('Account: %s' % user)
         c.drawText(t)
@@ -188,19 +187,19 @@ class GHIssuePrinter():
 
         c.line(10, height - 135, 210, height - 135)
 
-        c.setFont('HeiseiKakuGo-W5', 15)
+        c.setFont(FONT_NAME, 15)
         t = c.beginText(70, height-188)
         t.textLines(name)
         c.drawText(t)
 
-        c.setFont('HeiseiKakuGo-W5', 20)
+        c.setFont(FONT_NAME, 20)
         t = c.beginText(70, height-168)
         t.textLines('Issue #%s' % number)
         c.drawText(t)
 
         c.line(10, height - 205, 210, height - 205)
 
-        c.setFont('HeiseiKakuGo-W5', 10)
+        c.setFont(FONT_NAME, 10)
 
         t = c.beginText(10, height-225)
         t.textLines(wrap_title)
