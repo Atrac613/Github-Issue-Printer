@@ -55,13 +55,13 @@ class GHIssuePrinter():
 
                         count = 0
                         for issue in issues:
-                            #db.execute('insert into issue_id(\
-                            #            user,\
-                            #            repo,\
-                            #            issue_id) values (?, ?, ?)',
-                            #            [_key,
-                            #            _repo,
-                            #            (str(issue['number']))])
+                            db.execute('insert into issue_id(\
+                                        user,\
+                                        repo,\
+                                        issue_id) values (?, ?, ?)',
+                                        [_key,
+                                        _repo,
+                                        (str(issue['number']))])
                             count = count + 1
 
                         db.commit()
@@ -105,13 +105,13 @@ class GHIssuePrinter():
                             self.create_pdf(_key, _repo, issue)
                             self.print_pdf(_key, _repo, issue['number'])
 
-                            #db.execute('insert into issue_id(\
-                            #            user,\
-                            #            repo,\
-                            #            issue_id) values (?, ?, ?)',
-                            #            [_key,
-                            #            _repo,
-                            #            (str(issue['number']))])
+                            db.execute('insert into issue_id(\
+                                        user,\
+                                        repo,\
+                                        issue_id) values (?, ?, ?)',
+                                        [_key,
+                                        _repo,
+                                        (str(issue['number']))])
 
                             db.commit()
 
@@ -234,8 +234,8 @@ class GHIssuePrinter():
     
         self.debug('Print', 'Printing %s/%s/%s' % (user, repo, filename))
     
-        #if (os.path.isfile(filename)):
-            #os.system(PRINT_COMMAND % filename)
+        if (os.path.isfile(filename)):
+            os.system(PRINT_COMMAND % filename)
         
         os.chdir('..%s..%s..' % (os.sep, os.sep))
 
